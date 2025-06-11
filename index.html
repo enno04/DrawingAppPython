@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app-container">
+        <h1>Drawing App</h1>
+        
+        <div id="controls">
+            <div class="control-group">
+                <label for="mode">Mode:</label>
+                <select id="mode">
+                    <option value="dot">Titik</option>
+                    <option value="line">Garis</option>
+                    <option value="rect">Persegi</option>
+                    <option value="circle">Lingkaran</option>
+                    <option value="ellipse">Elips</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="color">Warna:</label>
+                <input type="color" id="color" value="#000000">
+            </div>
+
+            <div class="control-group">
+                <label for="line-width">Tebal:</label>
+                <input type="range" id="line-width" min="1" max="50" value="3">
+                <span id="line-width-value">3</span>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="undo-button">Undo</button>
+                <button id="redo-button">Redo</button>
+                <button id="clear-button">Hapus Kanvas</button>
+            </div>
+        </div>
+        
+        <div id="canvas-area">
+            <canvas id="canvas" width="800" height="600"></canvas>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+    <script type="text/python" src="main.py"></script>
+    <script type="text/python">
+        from browser import document
+        def on_load(event):
+            brython()
+        document.bind("DOMContentLoaded", on_load)
+    </script>
+</body>
+</html>
